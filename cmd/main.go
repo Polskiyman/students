@@ -1,16 +1,18 @@
 package main
 
 import (
-	"./pkg/storage"
-	"./pkg/student"
 	"bufio"
 	"fmt"
 	"io"
 	"os"
+
+	"github.com/Polskiyman/students/pkg/storage"
+	"github.com/Polskiyman/students/pkg/student"
 )
 
 func main() {
-	myStudMap := storage.Group{}
+	myGrup := storage.Group{}
+	myGrup.Studs = make(map[string]*student.Student)
 	in := bufio.NewReader(os.Stdin)
 	for {
 		line, err := in.ReadString('\n')
@@ -26,13 +28,12 @@ func main() {
 		if err != nil {
 			fmt.Println(err)
 		}
-		myStudMap.
-		(storage.Put(stud))
+		myGrup.Put(stud)
 	}
 	fmt.Println("The end! List students:")
 	cnt := 1
-	for _, v := range myStudMap.(storage.studs) {
-		fmt.Printf("%v. %v\n", cnt, myStudMap.get(v.name))
+	for _, v := range myGrup.Studs {
+		fmt.Printf("%v. %v\n", cnt, myGrup.Get(v.Name))
 		cnt++
 	}
 }
