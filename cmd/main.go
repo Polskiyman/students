@@ -5,9 +5,8 @@ import (
 	"fmt"
 	"io"
 	"os"
-
-	"github.com/Polskiyman/students/pkg/storage"
-	"github.com/Polskiyman/students/pkg/student"
+	"students/pkg/storage"
+	"students/pkg/student"
 )
 
 func main() {

@@ -1,6 +1,8 @@
 package storage
 
-import "github.com/Polskiyman/students/pkg/student"
+import (
+	"students/pkg/student"
+)
 
 type Group struct {
 	Studs map[string]*student.Student
