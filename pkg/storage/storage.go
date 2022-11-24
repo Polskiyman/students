@@ -15,7 +15,7 @@ func NewGroup(s map[string]*student.Student) Group {
 }
 
 func (p Group) Put(stud *student.Student) {
-	p.studs[stud.GetName()] = stud
+	p.studs[stud.Name()] = stud
 }
 
 func (p Group) GetStudent(name string) *student.Student {
