@@ -36,7 +36,7 @@ func main() {
 
 	cnt := 1
 	for _, v := range list {
-		fmt.Printf("%v. %v. %v. %v. \n", cnt, v.GetName(), v.GetAge(), v.GetGrade())
+		fmt.Printf("%v. %v. %v. %v. \n", cnt, v.Name(), v.Age(), v.Grade())
 		cnt++
 	}
 
