@@ -40,20 +40,20 @@ func NewStudent(name string, age, grade int) (*Student, error) {
 func (s *Student) SetName(name string) {
 	s.name = name
 }
-func (s *Student) GetName() string {
+func (s *Student) Name() string {
 	return s.name
 }
 
 func (s *Student) SetAge(age int) {
 	s.age = age
 }
-func (s *Student) GetAge() int {
+func (s *Student) Age() int {
 	return s.age
 }
 
 func (s *Student) SetGrade(grade int) {
 	s.grade = grade
 }
-func (s *Student) GetGrade() int {
+func (s *Student) Grade() int {
 	return s.grade
 }
