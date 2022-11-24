@@ -5,14 +5,26 @@ import (
 )
 
 type Group struct {
-	Studs map[string]*student.Student
+	studs map[string]*student.Student
+}
+
+func NewGroup(s map[string]*student.Student) Group {
+	return Group{
+		studs: s,
+	}
 }
 
 func (p Group) Put(stud *student.Student) {
-	p.Studs[stud.Name] = stud
+	p.studs[stud.GetName()] = stud
 }
 
-func (p Group) Get(name string) *student.Student {
-	stud := p.Studs[name]
+func (p Group) GetStudent(name string) *student.Student {
+	stud := p.studs[name]
 	return stud
+}
+func (p Group) GetAll() (res []*student.Student) {
+	for _, s := range p.studs {
+		res = append(res, s)
+	}
+	return
 }

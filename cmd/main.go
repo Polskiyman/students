@@ -10,8 +10,9 @@ import (
 )
 
 func main() {
-	myGrup := storage.Group{}
-	myGrup.Studs = make(map[string]*student.Student)
+	s := make(map[string]*student.Student)
+	myGroup := storage.NewGroup(s)
+
 	in := bufio.NewReader(os.Stdin)
 	for {
 		line, err := in.ReadString('\n')
@@ -27,12 +28,16 @@ func main() {
 		if err != nil {
 			fmt.Println(err)
 		}
-		myGrup.Put(stud)
+		myGroup.Put(stud)
 	}
 	fmt.Println("The end! List students:")
+
+	list := myGroup.GetAll()
+
 	cnt := 1
-	for _, v := range myGrup.Studs {
-		fmt.Printf("%v. %v\n", cnt, myGrup.Get(v.Name))
+	for _, v := range list {
+		fmt.Printf("%v. %v. %v. %v. \n", cnt, v.GetName(), v.GetAge(), v.GetGrade())
 		cnt++
 	}
+
 }
